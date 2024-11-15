@@ -69,6 +69,20 @@
       href="https://rfpsimulator.com"
     />
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-D00Q4NMN54"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+
+    gtag('config', 'G-D00Q4NMN54')
+  </script>
   <body>
     <script type="application/ld+json">
       {
@@ -110,12 +124,18 @@
                   <div class="slider">
                     <input
                       type="range"
-                      min="0"
-                      max="100"
-                      value="0"
+                      min="1"
+                      max="200"
+                      value="60"
                       step="1"
+                      id="rfps-per-year-slider"
                     />
-                    <div class="number">0</div>
+                    <div
+                      id="rfps-per-year-number"
+                      class="number"
+                    >
+                      0
+                    </div>
                   </div>
                 </div>
                 <div class="content-item">
@@ -123,25 +143,41 @@
                   <div class="slider">
                     <input
                       type="range"
-                      min="0"
-                      max="100"
-                      value="0"
-                      step="1"
+                      min="10000"
+                      max="500000"
+                      value="50000"
+                      step="10000"
+                      id="deal-size-slider"
                     />
-                    <div class="number">0</div>
+                    <div
+                      id="deal-size-number"
+                      class="number"
+                    >
+                      0
+                    </div>
                   </div>
                 </div>
                 <div class="content-item">
                   <h4>How many hours does your team spend on 1 RFP?</h4>
+                  <h5>
+                    Think of all included team members combined - (Pre)Sales Managers, SMEs, Sales Engineers, and other
+                    contributors across the company.
+                  </h5>
                   <div class="slider">
                     <input
                       type="range"
-                      min="0"
-                      max="100"
-                      value="0"
+                      min="8"
+                      max="500"
+                      value="100"
                       step="1"
+                      id="hours-per-rfp-slider"
                     />
-                    <div class="number">0</div>
+                    <div
+                      id="hours-per-rfp-number"
+                      class="number"
+                    >
+                      0
+                    </div>
                   </div>
                 </div>
                 <div class="content-item buttons">
@@ -165,11 +201,98 @@
                     />
                   </button>
                 </div>
+
                 <div
                   id="learn-more"
                   class="content-item learn-more"
                 >
-                  <h4>Discover More Benefits</h4>
+                  <div class="learn-more-item">
+                    <h4>Annual Time Saved</h4>
+                    <div class="input-group">
+                      <p>
+                        RFP automation platforms can save you in average around 50% of time spent on RFPs. The value
+                        depends on platform, use cases and tasks you automate. Try to change the value to see how it
+                        affects your ROI.
+                      </p>
+                      <p>
+                        <span>Automation efficiency:</span>
+                        <input
+                          type="number"
+                          class="percentage-input"
+                          value="50"
+                          min="0"
+                          max="100"
+                          step="1"
+                          id="automation-efficiency-input"
+                        />
+                        <span class="percentage-symbol">%</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="learn-more-item">
+                    <h4>Annual Cost Saved</h4>
+                    <div class="input-group">
+                      <p>
+                        Cost saved is calculated based on average hourly rate of your team. Usually the team is composed
+                        of Sales, Pre-Sales, SMEs, Sales Engineers and other contributors across the company from
+                        various departments (product, legal, finance, etc.).
+                      </p>
+                      <p>
+                        <span>Average hourly rate:</span>
+                        <input
+                          type="number"
+                          class="currency-input"
+                          value="100"
+                          min="10"
+                          step="10"
+                          id="hourly-rate-input"
+                        />
+                        <span class="currency-symbol">$</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="learn-more-item">
+                    <h4>Annual Revenue Growth</h4>
+                    <div class="input-group">
+                      <p>
+                        Potential revenue growth is calculated based on improved win rate and bigger capacity of your
+                        team. Predictibale automation can boost your win rate in average by 1.2x. Try to change the
+                        values to see how it affects your ROI.
+                      </p>
+                      <p>
+                        <span>New win rate:</span>
+                        <input
+                          type="number"
+                          class="percentage-input"
+                          value="10"
+                          min="1"
+                          max="100"
+                          step="1"
+                          id="win-rate-input"
+                        />
+                        <span class="percentage-symbol">%</span>
+                      </p>
+                      <div class="space"></div>
+
+                      <p>
+                        Capacity is taken as % of your newly saved time that can be invested to handle more RFPs. Try to
+                        change the values to see how it affects your ROI.
+                      </p>
+                      <p>
+                        <span>Percentage of saved time reinvested into new RFPs:</span>
+                        <input
+                          type="number"
+                          class="percentage-input"
+                          value="50"
+                          min="0"
+                          max="100"
+                          step="1"
+                          id="bigger-capacity-input"
+                        />
+                        <span class="percentage-symbol">%</span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="panel">
@@ -181,31 +304,47 @@
                       class="icon"
                     />
                     <h4>Annual Time Saved</h4>
-                    <h1>1000h</h1>
+                    <h1 id="annual-time-saved">1000h</h1>
                   </div>
                   <div>
                     <img
                       src="images/wallet.svg"
+                      alt="Clock Icon"
+                      class="icon"
+                    />
+                    <h4>Annual Cost Saved</h4>
+                    <h1 id="annual-cost-saved">1000$</h1>
+                  </div>
+                  <div>
+                    <img
+                      src="images/coin.svg"
                       alt="Wallet Icon"
                       class="icon"
                     />
-                    <h4>Revenue Growth</h4>
-                    <h1>1000$</h1>
+                    <h4>Annual Revenue Growth</h4>
+                    <h1 id="annual-revenue-growth">1000$</h1>
                   </div>
-                </div>
-                <div class="panel-item">
                   <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
                   <lottie-player
                     src="https://lottie.host/c8a68e08-ab25-4c78-b9da-217f958fd9ad/urgDBaX9J8.json"
                     background="##FFFFFF"
                     speed="1"
-                    style="width: 100%; height: auto; max-height: 300px"
+                    style="
+                      position: absolute;
+                      bottom: -10%;
+                      left: 0;
+                      width: 100%;
+                      height: auto;
+                      max-height: 300px;
+                      z-index: 1;
+                    "
                     loop
                     autoplay
                     direction="1"
                     mode="normal"
                   ></lottie-player>
                 </div>
+                <div class="panel-item"></div>
               </div>
             </div>
           </article>
