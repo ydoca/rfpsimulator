@@ -5,6 +5,12 @@
   transition: all 0.1s ease-in-out;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 .onest-100 {
   font-family: 'Onest', sans-serif;
   font-optical-sizing: auto;
