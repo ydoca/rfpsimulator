@@ -431,7 +431,7 @@ input[type='range']:focus::-moz-range-thumb {
   line-height: 72px;
   background-color: #09051a;
   color: #fff;
-  padding: 0 40px;
+  padding: 0 20px;
   border-radius: 60px;
   border: none;
   font-size: 18px;
