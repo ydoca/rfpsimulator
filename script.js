@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Calculate and display annual time saved
     const annualTimeSaved = Math.round(rfpsPerYear * hoursPerRfp * automationEfficiency)
-    document.querySelector('#annual-time-saved').textContent = `${annualTimeSaved}h`
+    document.querySelector('#annual-time-saved').textContent = `${annualTimeSaved.toLocaleString()}h`
 
     // Calculate and display cost savings using dynamic hourly rate
     const annualCostSaved = annualTimeSaved * hourlyRate

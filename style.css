@@ -185,7 +185,7 @@ footer {
   flex: 1 1 20%;
   text-align: right;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .slider input[type='range'] {
@@ -276,6 +276,7 @@ input[type='range']:focus::-moz-range-thumb {
   position: relative;
   flex: 1 1 calc(66.666%); /* subtracting half of the gap */
   padding: 40px;
+  overflow: hidden;
 }
 
 .card .content .content-item {
@@ -347,16 +348,32 @@ input[type='range']:focus::-moz-range-thumb {
   color: #09051a;
 }
 
+@keyframes slide {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 500px;
+  }
+}
+
 #learn-more {
+  position: relative;
+  max-height: 1000px;
   height: auto;
-  margin-top: 80px;
+  padding-top: 80px;
   opacity: 1;
-  transition: all 0.3s ease;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
 }
 
 #learn-more.hidden {
+  max-height: 0;
   opacity: 0;
   height: 0;
+  padding-top: 0;
+  visibility: hidden;
 }
 
 .icon {
@@ -408,6 +425,7 @@ input[type='range']:focus::-moz-range-thumb {
   align-items: center;
   justify-content: center;
   height: 72px;
+  width: 100%;
   line-height: 72px;
   background-color: #09051a;
   color: #fff;
@@ -441,7 +459,7 @@ input[type='range']:focus::-moz-range-thumb {
   background-color: #fff;
   border: none;
   color: #09051a;
-  padding: 0 40px;
+  /* padding: 0 40px; */
   border-radius: 60px;
   font-size: 18px;
   font-weight: 700;
@@ -518,7 +536,7 @@ input[type='range']:focus::-moz-range-thumb {
   }
 
   #learn-more {
-    margin-top: 40px;
+    padding-top: 40px;
   }
 }
 
