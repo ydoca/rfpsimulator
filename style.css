@@ -359,9 +359,8 @@ input[type='range']:focus::-moz-range-thumb {
 
 #learn-more {
   position: relative;
-  max-height: 1000px;
+  max-height: 2000px;
   height: auto;
-  padding-top: 80px;
   opacity: 1;
   visibility: visible;
   transition: all 0.3s ease-in-out;
@@ -373,6 +372,7 @@ input[type='range']:focus::-moz-range-thumb {
   opacity: 0;
   height: 0;
   padding-top: 0;
+  margin: 0;
   visibility: hidden;
 }
 
@@ -396,7 +396,9 @@ input[type='range']:focus::-moz-range-thumb {
 .card .panel .panel-item {
   z-index: 2;
 }
-
+.card .panel .panel-item a {
+  width: 100%;
+}
 .card .panel .panel-item div {
   display: flex;
   flex-direction: column;
@@ -456,7 +458,7 @@ input[type='range']:focus::-moz-range-thumb {
   justify-content: center;
   height: 72px;
   line-height: 72px;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   color: #09051a;
   /* padding: 0 40px; */
@@ -465,6 +467,7 @@ input[type='range']:focus::-moz-range-thumb {
   font-weight: 700;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  z-index: 2;
 }
 .secondary-button:hover {
   color: #1c5cff;
@@ -530,13 +533,8 @@ input[type='range']:focus::-moz-range-thumb {
     font-size: 18px;
   }
 
-  .primary-button,
-  .secondary-button {
+  .primary-button {
     padding: 0 20px;
-  }
-
-  #learn-more {
-    padding-top: 40px;
   }
 }
 
