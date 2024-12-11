@@ -100,11 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Check the domain parameter
   const urlParams = new URLSearchParams(window.location.search)
-  const showLogo = urlParams.get('showHeader')
+  const showHeader = urlParams.get('showHeader')
+  console.log(showHeader)
 
   const logoElement = document.getElementById('header') // Assuming your logo has this ID
 
-  if (showLogo === 'true') {
+  if (showHeader === 'true' || showHeader === null) {
     logoElement.style.display = 'block' // Show logo
   } else {
     logoElement.style.display = 'none' // Hide logo
